@@ -9,6 +9,7 @@ import RoadmapSection  from "@/sections/Roadmap";
 import { HowToBuySection } from "@/sections/HowToBuy";
 import { FooterSection } from "@/sections/Footer";
 import ComicMarquee from "@/components/ComicMarquee";
+import FloatingMascot from "@/components/FloatingMascot";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         }
       `}</style>
       <Navbar />
+      <FloatingMascot />
 
       <main className="relative">
         <Hero />

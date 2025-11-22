@@ -25,7 +25,7 @@ const socials = [
 export function Hero() {
   return (
     <>
-      <section className="relative w-full overflow-hidden lg:min-h-screen galaxy-bg">
+      <section id="hero" className="relative w-full overflow-hidden lg:min-h-screen galaxy-bg">
         {/* <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-blue-900/10 to-transparent z-0" /> */}
         <div className="absolute inset-0 bg-black z-0" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent z-0" />

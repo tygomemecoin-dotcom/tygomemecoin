@@ -12,7 +12,7 @@ const heroLines = [
 const ComicMarquee = () => {
   return (
     <div className="relative w-full overflow-hidden py-4 sm:py-5">
-      <div className="absolute inset-0 translate-y-1 scale-[0.99] bg-black/80 backdrop-blur-sm sm:translate-y-2 sm:scale-[0.98]" aria-hidden />
+      {/* <div className="absolute inset-0 translate-y-1 scale-[0.99] bg-black/80 backdrop-blur-sm sm:translate-y-2 sm:scale-[0.98]" aria-hidden /> */}
       <div className="relative bg-[#ff9302]/20 backdrop-blur-md border-y-2 border-[#ff9302]/50 glow-border py-3 sm:py-4">
         <Marquee gradient={false} speed={55} className="uppercase">
           <div className="flex items-center gap-4 px-4 text-base font-black tracking-[0.15em] text-white glow-text sm:gap-6 sm:px-6 sm:text-lg sm:tracking-[0.22em] md:gap-8 md:px-8 md:text-2xl md:tracking-[0.28em] lg:text-3xl lg:tracking-[0.3em] font-freeman">
