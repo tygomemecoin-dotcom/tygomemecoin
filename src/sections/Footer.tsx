@@ -12,11 +12,11 @@ import {
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const socials = [
-  { name: "Telegram", href: "https://t.me/", icon: FaTelegram },
-  { name: "Twitter", href: "https://twitter.com/", icon: FaXTwitter },
-  { name: "YouTube", href: "https://youtube.com/", icon: FaYoutube },
-  { name: "TikTok", href: "https://www.tiktok.com/", icon: FaTiktok },
-  { name: "Instagram", href: "https://www.instagram.com/", icon: FaInstagram },
+  { name: "Telegram", href: "https://t.me/tygo_memecoin", icon: FaTelegram },
+  { name: "Twitter", href: "https://x.com/tygo_memecoin", icon: FaXTwitter },
+  { name: "YouTube", href: "https://youtube.com/@tygo_memecoin", icon: FaYoutube },
+  { name: "TikTok", href: "https://www.tiktok.com/@tygo_memecoin", icon: FaTiktok },
+  { name: "Instagram", href: "https://www.instagram.com/tygo_memecoin", icon: FaInstagram },
 ];
 
 export function FooterSection() {
@@ -31,17 +31,14 @@ export function FooterSection() {
       className="relative galaxy-bg py-16 text-white sm:py-20"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-blue-900/10 to-transparent z-0" />
-      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 sm:gap-12 sm:px-10 lg:flex-row lg:items-end lg:justify-between lg:gap-16 lg:px-12 max-[320px]:gap-6 max-[320px]:px-3">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 sm:gap-12 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16 lg:px-12 max-[320px]:gap-6 max-[320px]:px-3">
         <div className="flex w-full flex-col gap-6">
           <div className={`space-y-3 ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: isVisible ? '0.1s' : '0s' }}>
-            <span className="inline-flex items-center gap-3 rounded-full border-4 border-[#ff9302] bg-black/60 backdrop-blur-md px-6 py-2 text-xs font-black uppercase tracking-[0.35em] text-white glow-border-strong">
-              Our social media will be
-            </span>
             <h2 className="text-4xl font-black uppercase text-[#FF8B00] sm:text-5xl glow-text-strong">
-              Link Up With The Jungle
+              JOIN THE TYGO ARMY
             </h2>
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/70 glow-text sm:text-base">
-              The loudest degen energy lives on these official channels.
+              Stay updated on our official channels.
             </p>
           </div>
 
@@ -70,7 +67,7 @@ export function FooterSection() {
           <div className="rounded-[20px] border-3 border-[#ff9302] bg-[#FF8B00]/20 backdrop-blur-sm p-3 glow-border sm:rounded-[24px] sm:p-4 max-[320px]:rounded-xl max-[320px]:p-2">
             <div className="relative overflow-hidden rounded-xl border-4 border-[#ff9302] bg-black glow-border sm:rounded-2xl max-[320px]:rounded-lg max-[320px]:border-3">
               <Image
-                src="/images/fire_tygo.gif"
+                src="/images/tygo_gun.gif"
                 alt="$TYGO animated loop"
                 width={440}
                 height={440}
@@ -79,7 +76,7 @@ export function FooterSection() {
               />
             </div>
             <p className="mt-3 text-[10px] font-black uppercase tracking-[0.3em] text-white/80 glow-text sm:mt-4 sm:text-xs sm:tracking-[0.35em] max-[320px]:mt-2 max-[320px]:text-[9px] max-[320px]:tracking-[0.2em]">
-              Stay wild. Stay tuned. More drops coming.
+              Keep an eye out, big things coming.
             </p>
           </div>
         </div>

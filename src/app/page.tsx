@@ -6,6 +6,7 @@ import GallerySection from "@/sections/Gallery";
 import BuyPortalSection from "@/sections/BuyPortal";
 import { TokenomicsSection } from "@/sections/Tokenomics";
 import RoadmapSection  from "@/sections/Roadmap";
+import BlueprintSection from "@/sections/Blueprint";
 import { HowToBuySection } from "@/sections/HowToBuy";
 import { FooterSection } from "@/sections/Footer";
 import ComicMarquee from "@/components/ComicMarquee";
@@ -35,6 +36,7 @@ export default function Home() {
           <BuyPortalSection />
           <TokenomicsSection />
           <RoadmapSection />
+          {/* <BlueprintSection /> */}
           <HowToBuySection />
           <FooterSection />
         </main>

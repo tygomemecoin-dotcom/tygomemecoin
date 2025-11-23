@@ -208,10 +208,10 @@ export function TokenomicsSection() {
             <Image src="/images/logo.jpg" alt="Logo" width={16} height={16} className="h-4 w-4 lg:h-5 lg:w-5 rounded-full object-cover" /> TYGONOMICS
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-5xl xl:text-6xl font-black uppercase leading-tight glow-text-strong">
-            Jungle Math That Never Folds
+            THE NUMBERS BEHIND THE ROAR. 
           </h2>
           <p className="text-[10px] sm:text-xs lg:text-base font-semibold uppercase tracking-[0.15em] lg:tracking-[0.25em] text-white/80 glow-text">
-            BUILT FOR SPEED, LOCKED FOR CULTURE.
+            EVERYTHING YOU NEED TO KNOW.
           </p>
         </div>
 

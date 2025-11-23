@@ -79,7 +79,7 @@ const galleryRows: GalleryRow[] = [
         aspectClass: "aspect-square lg:aspect-[2/3]",
         content: {
           type: "image",
-          src: "/images/tg2.jpeg",
+          src: "/images/susano.png",
           alt: "Tygo nightlife vertical spread",
         },
       },
@@ -213,12 +213,12 @@ export default function GallerySection() {
               ART GALLERY
             </h2>
             <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/70 glow-text sm:text-sm sm:tracking-[0.2em] lg:text-base">
-              ART DROPS, ANIMATION FRAMES, AND JUNGLE VISUALS THAT IGNITE EVERY FEED.
+              We work with some of the most talented artists in the space, bringing Tygo to life through world-class art and unique creative styles.
             </p>
           </div>
 
           <a
-            href="https://drive.google.com/drive/folders/1cZ9OR9kU3KoMM3a-mzk1KFlwGALg7ddq?usp=driv_e_link"
+            href="https://t.me/tygomemes"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border-3 border-[#ff9302] bg-black/60 backdrop-blur-md px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white glow-border-strong glow-hover transition-all duration-200 hover:translate-y-2 sm:gap-3 sm:border-4 sm:px-6 sm:py-3 sm:text-sm sm:tracking-[0.25em]"

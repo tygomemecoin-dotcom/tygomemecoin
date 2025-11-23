@@ -55,7 +55,7 @@ export function HowToBuySection() {
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-12 sm:gap-12 sm:px-10 lg:px-12 lg:py-20 max-[320px]:gap-6 max-[320px]:px-3 max-[320px]:py-10">
         <div className={`space-y-3 text-center sm:space-y-4 sm:text-left ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: isVisible ? '0.1s' : '0s' }}>
           <span className="inline-flex items-center gap-3 self-center rounded-full border-4 border-[#ff9302] bg-black/60 backdrop-blur-md px-6 py-2 text-xs font-black uppercase tracking-[0.35em] text-white glow-border-strong glow-hover transition-all duration-200 hover:translate-x-[3px] hover:translate-y-[3px] sm:self-start">
-            <Image src="/images/logo.jpg" alt="Logo" width={16} height={16} className="h-4 w-4 rounded-full object-cover" /> HOW TO BUY $TYGO
+            <Image src="/images/logo.jpg" alt="Logo" width={16} height={16} className="h-4 w-4 rounded-full object-cover" /> EASY TUTORIAL 
           </span>
           <h2 className="text-3xl font-black uppercase max-[360px]:text-2xl sm:text-4xl lg:text-6xl glow-text-strong">
             HOW TO BUY $TYGO

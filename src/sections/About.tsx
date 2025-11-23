@@ -47,12 +47,12 @@ export default function AboutSection() {
               >
                 In the heart of the crypto jungle, <span className="text-[#FF8B00] glow-text-strong">$TYGO</span> the Tiger was born. A wild degen beast who lives on the edge and thrives in the chaos of Solana. He loves to trade and gamble, always chasing the next big opportunity, his favorite thing in the world is money.
               </p>
-              <p 
+              {/* <p 
                 className={`text-base leading-relaxed text-white/90 glow-text sm:text-lg lg:text-xl ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                 style={{ animationDelay: isVisible ? '0.3s' : '0s' }}
               >
                 Fast, fearless, and always hungry for more, a beast who turns FOMO into fortune, fear into fuel, and roars when others panic.
-              </p>
+              </p> */}
             </div>
             <div className="space-y-4 sm:space-y-6">
               {/* Combined Card - Contract Address & Money Tygo Image */}
@@ -107,12 +107,12 @@ export default function AboutSection() {
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col items-center justify-center gap-6 sm:gap-10 lg:items-start lg:gap-12 lg:self-start lg:pt-4">
+          <div className="flex flex-col items-center justify-center gap-6 sm:gap-10 lg:items-start lg:gap-12 lg:self-start">
             <div className="w-full space-y-6 sm:space-y-8">
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-6 lg:gap-8 lg:items-start">
-                <div className="flex flex-1 flex-col items-center gap-3 text-center sm:items-start sm:gap-4 sm:pt-6 sm:text-left lg:pt-0 lg:items-start">
+                <div className="flex flex-1 flex-col items-center gap-3 text-center sm:items-start sm:gap-4 sm:text-left lg:items-start">
                   <h3 
-                    className={`text-3xl font-black uppercase text-[#FF8B00] sm:text-4xl lg:text-5xl ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+                    className={`text-3xl font-black uppercase text-[#FF8B00] sm:text-4xl lg:text-5xl sm:mt-6 lg:mt-[5rem] ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                     style={{ animationDelay: isVisible ? '0.5s' : '0s' }}
                   >
                     Mission
