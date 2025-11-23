@@ -44,9 +44,11 @@ function PumpfunGif({ onCountChange }: { onCountChange?: (count: number) => void
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isMoving, setIsMoving] = useState(false);
   const [clickCount, setClickCount] = useState(0);
+  const [isClicking, setIsClicking] = useState(false);
   const { triggerFalling } = useFallingTygo();
 
   const handleClick = () => {
+    setIsClicking(true);
     setIsMoving(true);
     const newCount = clickCount + 1;
     setClickCount(newCount);
@@ -82,15 +84,50 @@ function PumpfunGif({ onCountChange }: { onCountChange?: (count: number) => void
       setPosition({ x: 0, y: 0 });
       setTimeout(() => setIsMoving(false), 200);
     }, 300);
+    
+    // Reset click effect
+    setTimeout(() => {
+      setIsClicking(false);
+    }, 200);
   };
 
   return (
     <div 
-      className="group relative w-full h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] rounded-xl lg:rounded-2xl border-2 lg:border-4 border-[#ff9302] bg-black/40 backdrop-blur-sm overflow-hidden glow-border cursor-pointer transition-all duration-300 hover:border-[#ff9302] hover:shadow-[0_0_40px_rgba(255,147,2,0.6),0_0_80px_rgba(255,147,2,0.3)] active:scale-95"
+      className="group relative w-full h-full min-h-[200px] sm:min-h-[250px] lg:min-h-[300px] rounded-xl lg:rounded-2xl border-2 lg:border-4 border-[#ff9302] bg-black/40 backdrop-blur-sm overflow-hidden glow-border cursor-pointer transition-all duration-300 hover:border-[#ff9302] hover:shadow-[0_0_40px_rgba(255,147,2,0.6),0_0_80px_rgba(255,147,2,0.3)] select-none"
       onClick={handleClick}
+      style={{
+        transform: isClicking ? 'scale(0.95)' : 'scale(1)',
+        boxShadow: isClicking 
+          ? '0 0 60px rgba(255, 147, 2, 1), 0 0 100px rgba(255, 147, 2, 0.8), 0 0 140px rgba(255, 147, 2, 0.6), inset 0 0 40px rgba(255, 147, 2, 0.3)'
+          : undefined,
+        borderColor: isClicking ? '#ff9302' : '#ff9302',
+      }}
     >
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#FF8B00]/20 via-transparent to-[#FF8B00]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none" />
+      
+      {/* Click ripple effect */}
+      {isClicking && (
+        <div className="absolute inset-0 z-30 pointer-events-none">
+          <div 
+            className="absolute top-1/2 left-1/2 w-0 h-0 rounded-full bg-[#ff9302] opacity-60"
+            style={{
+              transform: 'translate(-50%, -50%)',
+              animation: 'ripple 0.6s ease-out',
+            }}
+          />
+        </div>
+      )}
+      
+      {/* Click pulse effect */}
+      {isClicking && (
+        <div 
+          className="absolute inset-0 border-4 border-[#ff9302] rounded-xl lg:rounded-2xl z-20 pointer-events-none"
+          style={{
+            animation: 'pulse-border 0.3s ease-out',
+          }}
+        />
+      )}
       
       {/* GIF Container with click animation */}
       <div className="relative w-full h-full flex flex-col items-center justify-center p-4 sm:p-5 lg:p-6">
