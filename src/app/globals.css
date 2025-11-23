@@ -46,9 +46,8 @@
     font-family: "Luckiest Guy", "Bangers", "Impact", system-ui, sans-serif;
     letter-spacing: 0.04em;
     text-shadow:
-      0 0 6px rgba(255, 147, 2, 0.4),
-      0 0 12px rgba(255, 147, 2, 0.25),
-      0 0 18px rgba(255, 147, 2, 0.15);
+      0 0 4px rgba(255, 147, 2, 0.2),
+      0 0 8px rgba(255, 147, 2, 0.12);
   }
 
   p {
@@ -114,52 +113,46 @@
 
   .glow-text {
     text-shadow:
-      0 0 10px rgba(255, 147, 2, 0.6),
-      0 0 20px rgba(255, 147, 2, 0.4),
-      0 0 30px rgba(255, 147, 2, 0.3);
+      0 0 4px rgba(255, 147, 2, 0.25),
+      0 0 8px rgba(255, 147, 2, 0.15);
   }
 
   .glow-text-strong {
     text-shadow:
-      0 0 8px rgba(255, 147, 2, 0.5),
-      0 0 16px rgba(255, 147, 2, 0.3),
-      0 0 24px rgba(255, 147, 2, 0.2);
+      0 0 5px rgba(255, 147, 2, 0.3),
+      0 0 10px rgba(255, 147, 2, 0.18);
   }
   
   .glow-text-subtle {
     text-shadow:
-      0 0 5px rgba(255, 147, 2, 0.35),
-      0 0 10px rgba(255, 147, 2, 0.2),
-      0 0 15px rgba(255, 147, 2, 0.12);
+      0 0 3px rgba(255, 147, 2, 0.2),
+      0 0 6px rgba(255, 147, 2, 0.12);
   }
 
   /* Comic shadow variants - updated for galaxy theme */
   .comic-shadow-light {
     text-shadow:
-      0 0 10px rgba(255, 147, 2, 0.6),
-      0 0 20px rgba(255, 147, 2, 0.4),
-      0 0 30px rgba(255, 147, 2, 0.3),
-      0 0 40px rgba(255, 147, 2, 0.2);
+      0 0 5px rgba(255, 147, 2, 0.3),
+      0 0 10px rgba(255, 147, 2, 0.2);
   }
 
   /* Freeman helpers: make paragraph text pop with subtle outlines */
   .freeman-outline-dark {
     text-shadow:
-      0 0 8px rgba(255, 147, 2, 0.5),
-      0 0 16px rgba(255, 147, 2, 0.3);
+      0 0 4px rgba(255, 147, 2, 0.25),
+      0 0 8px rgba(255, 147, 2, 0.15);
   }
   .freeman-outline-light {
     text-shadow:
-      0 0 10px rgba(255, 255, 255, 0.4),
-      0 0 20px rgba(255, 255, 255, 0.2);
+      0 0 5px rgba(255, 255, 255, 0.2),
+      0 0 10px rgba(255, 255, 255, 0.12);
   }
 
   /* Stronger readability for body text over busy bright backgrounds */
   .readable-contrast {
     text-shadow:
-      0 0 10px rgba(255, 255, 255, 0.8),
-      0 0 20px rgba(255, 255, 255, 0.6),
-      0 0 30px rgba(255, 255, 255, 0.4);
+      0 0 5px rgba(255, 255, 255, 0.4),
+      0 0 10px rgba(255, 255, 255, 0.3);
   }
 
   .glow-hover {
@@ -266,5 +259,210 @@
   .fade-in {
     animation: fadeIn 0.6s ease-out forwards;
     opacity: 0;
+  }
+
+  /* FallingTygo Animations - Full Screen */
+  @keyframes fallFromTop {
+    0% {
+      top: -200px;
+      opacity: 0;
+      transform: translateX(-50%) rotate(0deg) scale(0.8);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(-50%) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) rotate(180deg) scale(1.1);
+    }
+    90% {
+      opacity: 1;
+      transform: translateX(-50%) rotate(340deg) scale(1);
+    }
+    100% {
+      top: 100vh;
+      opacity: 0;
+      transform: translateX(-50%) rotate(360deg) scale(0.8);
+    }
+  }
+
+  @keyframes fallFromBottom {
+    0% {
+      bottom: -200px;
+      opacity: 0;
+      transform: translateX(-50%) rotate(0deg) scale(0.8);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(-50%) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translateX(-50%) rotate(-180deg) scale(1.1);
+    }
+    90% {
+      opacity: 1;
+      transform: translateX(-50%) rotate(-340deg) scale(1);
+    }
+    100% {
+      bottom: 100vh;
+      opacity: 0;
+      transform: translateX(-50%) rotate(-360deg) scale(0.8);
+    }
+  }
+
+  @keyframes fallFromLeft {
+    0% {
+      left: -200px;
+      opacity: 0;
+      transform: translateY(-50%) rotate(0deg) scale(0.8);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(-50%) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translateY(-50%) rotate(180deg) scale(1.1);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(-50%) rotate(340deg) scale(1);
+    }
+    100% {
+      left: 100vw;
+      opacity: 0;
+      transform: translateY(-50%) rotate(360deg) scale(0.8);
+    }
+  }
+
+  @keyframes fallFromRight {
+    0% {
+      right: -200px;
+      opacity: 0;
+      transform: translateY(-50%) rotate(0deg) scale(0.8);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(-50%) rotate(0deg) scale(1);
+    }
+    50% {
+      transform: translateY(-50%) rotate(-180deg) scale(1.1);
+    }
+    90% {
+      opacity: 1;
+      transform: translateY(-50%) rotate(-340deg) scale(1);
+    }
+    100% {
+      right: 100vw;
+      opacity: 0;
+      transform: translateY(-50%) rotate(-360deg) scale(0.8);
+    }
+  }
+
+  .fall-from-top {
+    animation: fallFromTop 2.5s ease-in-out forwards;
+  }
+
+  .fall-from-bottom {
+    animation: fallFromBottom 2.5s ease-in-out forwards;
+  }
+
+  .fall-from-left {
+    animation: fallFromLeft 2.5s ease-in-out forwards;
+  }
+
+  .fall-from-right {
+    animation: fallFromRight 2.5s ease-in-out forwards;
+  }
+
+  /* Zoom from center animation for 100 clicks */
+  @keyframes zoomFromCenter {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+    }
+    20% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(8);
+      opacity: 1;
+    }
+    80% {
+      transform: translate(-50%, -50%) scale(20);
+      opacity: 0.9;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(30);
+      opacity: 0;
+    }
+  }
+
+  .zoom-from-center {
+    animation: zoomFromCenter 3s ease-out forwards;
+  }
+
+  /* BOOM Effect Animations */
+  @keyframes boom-text {
+    0% {
+      transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+      opacity: 0;
+    }
+    20% {
+      transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+      opacity: 1;
+    }
+    40% {
+      transform: translate(-50%, -50%) scale(1) rotate(10deg);
+      opacity: 1;
+    }
+    60% {
+      transform: translate(-50%, -50%) scale(1.1) rotate(-5deg);
+      opacity: 1;
+    }
+    80% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes float-ball {
+    0% {
+      transform: translate(0, 0) scale(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(
+        calc(var(--float-x, 0) * 100px),
+        calc(var(--float-y, 0) * 100px)
+      ) scale(1.2);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(
+        calc(var(--float-x, 0) * 200px),
+        calc(var(--float-y, 0) * 200px)
+      ) scale(0);
+      opacity: 0;
+    }
+  }
+
+  .animate-boom-text {
+    animation: boom-text 2s ease-out forwards;
+  }
+
+  .animate-float-ball {
+    animation: float-ball 3s ease-out forwards;
   }
 }

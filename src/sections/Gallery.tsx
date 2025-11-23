@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 type GalleryContent =
   | {
@@ -193,11 +194,20 @@ const galleryRows: GalleryRow[] = [
 ];
 
 export default function GallerySection() {
+  const { elementRef, isVisible } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "0px",
+  });
+
   return (
-    <section id="gallery" className="relative galaxy-bg text-white">
+    <section
+      ref={elementRef as React.RefObject<HTMLElement>}
+      id="gallery"
+      className="relative galaxy-bg text-white"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-orange-900/30 via-[#FF8B00]/20 to-transparent z-0" />
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-10 sm:gap-10 sm:px-10 sm:py-16 lg:max-w-7xl lg:px-12 lg:py-20">
-        <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:items-end sm:gap-6 sm:text-left">
+        <div className={`flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:items-end sm:gap-6 sm:text-left ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: isVisible ? '0.1s' : '0s' }}>
           <div className="max-w-2xl space-y-2 sm:space-y-4">
             <h2 className="text-3xl font-black uppercase sm:text-5xl lg:text-6xl glow-text-strong">
               ART GALLERY
@@ -219,83 +229,105 @@ export default function GallerySection() {
 
         {/* Mobile & Tablet Layout */}
         <div className="space-y-3 lg:hidden">
-          {galleryRows.map((row, rowIndex) => (
-            <div key={`mobile-row-${rowIndex}`} className="space-y-3">
-              {row.columns.map((column, colIndex) => {
-                if (column.kind === "stack") {
+          {galleryRows.map((row, rowIndex) => {
+            let cardIndex = 0;
+            return (
+              <div key={`mobile-row-${rowIndex}`} className="space-y-3">
+                {row.columns.map((column, colIndex) => {
+                  if (column.kind === "stack") {
+                    return (
+                      <div
+                        key={`mobile-col-${rowIndex}-${colIndex}`}
+                        className="grid grid-cols-2 gap-2 sm:gap-3"
+                      >
+                        {column.items.map((item, itemIndex) => {
+                          const delay = 0.2 + (cardIndex++ * 0.1);
+                          return (
+                            <div
+                              key={`mobile-item-${rowIndex}-${colIndex}-${itemIndex}`}
+                              className={itemIndex === column.items.length - 1 ? "col-span-2" : ""}
+                            >
+                              <GalleryCard
+                                content={item.content}
+                                aspectClass={item.aspectClass}
+                                isVisible={isVisible}
+                                delay={delay}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  }
+
+                  const delay = 0.2 + (cardIndex++ * 0.1);
                   return (
-                    <div
-                      key={`mobile-col-${rowIndex}-${colIndex}`}
-                      className="grid grid-cols-2 gap-2 sm:gap-3"
-                    >
-                      {column.items.map((item, itemIndex) => (
-                        <div
-                          key={`mobile-item-${rowIndex}-${colIndex}-${itemIndex}`}
-                          className={itemIndex === column.items.length - 1 ? "col-span-2" : ""}
-                        >
-                          <GalleryCard
-                            content={item.content}
-                            aspectClass={item.aspectClass}
-                          />
-                        </div>
-                      ))}
+                    <div key={`mobile-col-${rowIndex}-${colIndex}`}>
+                      <GalleryCard
+                        content={column.content}
+                        aspectClass={column.aspectClass}
+                        isVisible={isVisible}
+                        delay={delay}
+                      />
                     </div>
                   );
-                }
-
-                return (
-                  <div key={`mobile-col-${rowIndex}-${colIndex}`}>
-                    <GalleryCard
-                      content={column.content}
-                      aspectClass={column.aspectClass}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          ))}
+                })}
+              </div>
+            );
+          })}
         </div>
 
         {/* Desktop Layout */}
         <div className="hidden space-y-8 lg:block">
-          {galleryRows.map((row, rowIndex) => (
-            <div
-              key={`desktop-row-${rowIndex}`}
-              className="grid grid-cols-12 gap-6"
-            >
-              {row.columns.map((column, colIndex) => {
-                if (column.kind === "stack") {
+          {galleryRows.map((row, rowIndex) => {
+            let cardIndex = 0;
+            return (
+              <div
+                key={`desktop-row-${rowIndex}`}
+                className="grid grid-cols-12 gap-6"
+              >
+                {row.columns.map((column, colIndex) => {
+                  if (column.kind === "stack") {
+                    return (
+                      <div
+                        key={`desktop-col-${rowIndex}-${colIndex}`}
+                        className={`${column.spanClass} flex flex-col gap-4`}
+                      >
+                        {column.items.map((item, itemIndex) => {
+                          const delay = 0.2 + (cardIndex++ * 0.1);
+                          return (
+                            <div key={`desktop-item-${rowIndex}-${colIndex}-${itemIndex}`}>
+                              <GalleryCard
+                                content={item.content}
+                                aspectClass={item.aspectClass}
+                                isVisible={isVisible}
+                                delay={delay}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    );
+                  }
+
+                  const delay = 0.2 + (cardIndex++ * 0.1);
                   return (
                     <div
                       key={`desktop-col-${rowIndex}-${colIndex}`}
-                      className={`${column.spanClass} flex flex-col gap-4`}
+                      className={column.spanClass}
                     >
-                      {column.items.map((item, itemIndex) => (
-                        <div key={`desktop-item-${rowIndex}-${colIndex}-${itemIndex}`}>
-                          <GalleryCard
-                            content={item.content}
-                            aspectClass={item.aspectClass}
-                          />
-                        </div>
-                      ))}
+                      <GalleryCard
+                        content={column.content}
+                        aspectClass={column.aspectClass}
+                        isVisible={isVisible}
+                        delay={delay}
+                      />
                     </div>
                   );
-                }
-
-                return (
-                  <div
-                    key={`desktop-col-${rowIndex}-${colIndex}`}
-                    className={column.spanClass}
-                  >
-                    <GalleryCard
-                      content={column.content}
-                      aspectClass={column.aspectClass}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          ))}
+                })}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -307,9 +339,9 @@ type GalleryCardProps = {
   aspectClass: string;
 };
 
-function GalleryCard({ content, aspectClass }: GalleryCardProps) {
+function GalleryCard({ content, aspectClass, isVisible, delay }: GalleryCardProps & { isVisible: boolean; delay: number }) {
   return (
-    <div className="group relative overflow-hidden rounded-xl border-3 border-[#ff9302] bg-black/40 backdrop-blur-sm glow-border glow-hover transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 sm:rounded-[20px] lg:rounded-[28px] lg:border-4">
+    <div className={`group relative overflow-hidden rounded-xl border-3 border-[#ff9302] bg-black/40 backdrop-blur-sm glow-border glow-hover transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 sm:rounded-[20px] lg:rounded-[28px] lg:border-4 ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: isVisible ? `${delay}s` : '0s' }}>
       <div className={`relative w-full ${aspectClass}`}>
         {content.type === "image" ? (
           <Image

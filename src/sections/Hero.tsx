@@ -13,6 +13,7 @@ import {
   FaTiktok,
   FaInstagram,
 } from "react-icons/fa6";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const socials = [
   { name: "Telegram", href: "https://t.me/", icon: FaTelegram },
@@ -23,9 +24,18 @@ const socials = [
 ];
 
 export function Hero() {
+  const { elementRef, isVisible } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "0px",
+  });
+
   return (
     <>
-      <section id="hero" className="relative w-full overflow-hidden lg:min-h-screen galaxy-bg">
+      <section
+        ref={elementRef as React.RefObject<HTMLElement>}
+        id="hero"
+        className="relative w-full overflow-hidden lg:min-h-screen galaxy-bg"
+      >
         {/* <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-blue-900/10 to-transparent z-0" /> */}
         <div className="absolute inset-0 bg-black z-0" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent z-0" />
@@ -38,8 +48,8 @@ export function Hero() {
         <div style={{padding: '0px' }} className="lg:mt-4 mt-28 sm:mt-18 md:mt-28 relative mx-auto flex w-full flex-col-reverse items-center justify-center gap-0 px-4 pt-4 pb-0 text-center sm:gap-2 sm:px-8 sm:pt-6 sm:pb-0 md:gap-0 md:max-lg:flex-col-reverse lg:flex-row lg:min-h-screen lg:items-end lg:justify-center lg:gap-[clamp(2rem,4vw,4.5rem)] lg:px-[clamp(1.5rem,4vw,4rem)] lg:pb-0 lg:text-left">
           {/* Mascot - Left Side (second on mobile, left on desktop) */}
           <div 
-            className="flex w-full justify-center -mt-4 md:-mt-4 lg:w-auto lg:justify-center lg:self-end fade-in-up"
-            style={{ animationDelay: '1.8s' }}
+            className={`flex w-full justify-center -mt-4 md:-mt-4 lg:w-auto lg:justify-center lg:self-end ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+            style={{ animationDelay: isVisible ? '0.1s' : '0s' }}
           >
             <Image
               src="/images/mascot.gif"
@@ -56,19 +66,34 @@ export function Hero() {
           <div className="relative w-full max-w-xl -mb-2 md:-mb-2 lg:w-auto lg:max-w-[clamp(28rem,32vw,38rem)] lg:-translate-x-[clamp(1.5rem,8vw,4.5rem)] lg:self-end lg:mb-12 z-10">
             <div className="relative rounded-2xl px-3 py-3 sm:rounded-2xl sm:px-4 sm:py-4 md:rounded-2xl md:px-3 md:py-3 lg:rounded-[28px] lg:px-6 lg:py-12  ">
               <h1
-                className="space-y-0 font-black leading-[0.94] sm:space-y-0 md:space-y-0 lg:space-y-2 glow-text-subtle fade-in-up"
+                className={`space-y-0 font-black leading-[0.94] sm:space-y-0 md:space-y-0 lg:space-y-2 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                 style={{ 
-                  fontSize: "clamp(3.5rem, 12vw, 8.4rem)", 
+                  fontSize: "clamp(5.5rem, 18vw, 14rem)", 
                   letterSpacing: "0.045em", 
                   color: "#ff9302",
-                  animationDelay: '0.8s'
+                  WebkitTextStroke: "clamp(1.5px, 0.2vw, 2.5px) #ffffff",
+                  textShadow: `
+                    clamp(1px, 0.15vw, 2px) clamp(1px, 0.15vw, 2px) 0 rgba(255, 255, 255, 0.9),
+                    clamp(-1px, -0.15vw, -2px) clamp(-1px, -0.15vw, -2px) 0 rgba(255, 255, 255, 0.9),
+                    clamp(1px, 0.15vw, 2px) clamp(-1px, -0.15vw, -2px) 0 rgba(255, 255, 255, 0.9),
+                    clamp(-1px, -0.15vw, -2px) clamp(1px, 0.15vw, 2px) 0 rgba(255, 255, 255, 0.9),
+                    clamp(1px, 0.15vw, 2px) clamp(1px, 0.15vw, 2px) 0 rgba(255, 147, 2, 0.6),
+                    clamp(-1px, -0.15vw, -2px) clamp(-1px, -0.15vw, -2px) 0 rgba(255, 147, 2, 0.6),
+                    clamp(1px, 0.15vw, 2px) clamp(-1px, -0.15vw, -2px) 0 rgba(255, 147, 2, 0.6),
+                    clamp(-1px, -0.15vw, -2px) clamp(1px, 0.15vw, 2px) 0 rgba(255, 147, 2, 0.6),
+                    clamp(2px, 0.25vw, 3px) clamp(2px, 0.25vw, 3px) clamp(2px, 0.3vw, 4px) rgba(255, 147, 2, 0.4),
+                    clamp(-2px, -0.25vw, -3px) clamp(-2px, -0.25vw, -3px) clamp(2px, 0.3vw, 4px) rgba(255, 147, 2, 0.4),
+                    clamp(2px, 0.25vw, 3px) clamp(-2px, -0.25vw, -3px) clamp(2px, 0.3vw, 4px) rgba(255, 147, 2, 0.4),
+                    clamp(-2px, -0.25vw, -3px) clamp(2px, 0.25vw, 3px) clamp(2px, 0.3vw, 4px) rgba(255, 147, 2, 0.4)
+                  `,
+                  animationDelay: isVisible ? '0.2s' : '0s'
                 }}
               >
                 <span className="block">TYGO</span>
               </h1>
               <p 
-                className="mt-1.5 text-center text-base font-black leading-tight text-white glow-text sm:mt-1.5 sm:leading-tight md:mt-1.5 md:leading-tight md:text-base lg:mt-5 lg:text-left lg:text-[1.25rem] lg:leading-relaxed xl:text-[1.55rem] fade-in-up"
-                style={{ animationDelay: '1.0s' }}
+                className={`mt-1.5 text-center text-base font-black leading-tight text-white glow-text sm:mt-1.5 sm:leading-tight md:mt-1.5 md:leading-tight md:text-base lg:mt-5 lg:text-left lg:text-[1.25rem] lg:leading-relaxed xl:text-[1.55rem] ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+                style={{ animationDelay: isVisible ? '0.3s' : '0s' }}
               >
                 WILD DEGEN BORN IN THE CRYPTO JUNGLE
               </p>
@@ -78,11 +103,11 @@ export function Hero() {
                     href="https://pump.fun"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border-3 border-[#ff9302] px-6 py-2 text-sm font-black uppercase tracking-[0.25em] text-[#ff9302] glow-border-strong glow-hover transition-all duration-200 hover:translate-y-2 sm:px-8 sm:py-3 sm:text-base sm:tracking-[0.3em] fade-in-up"
+                    className={`inline-flex items-center justify-center rounded-full border-3 border-[#ff9302] px-6 py-2 text-sm font-black uppercase tracking-[0.25em] text-[#ff9302] glow-border-strong glow-hover transition-all duration-200 hover:translate-y-2 sm:px-8 sm:py-3 sm:text-base sm:tracking-[0.3em] ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                     style={{
                       background: 'linear-gradient(135deg, rgba(26, 77, 46, 0.9) 0%, rgba(40, 100, 60, 0.85) 50%, rgba(26, 77, 46, 0.9) 100%)',
                       boxShadow: '0 0 20px rgba(255, 147, 2, 0.4), 0 0 40px rgba(255, 147, 2, 0.2), inset 0 0 20px rgba(255, 147, 2, 0.15)',
-                      animationDelay: '1.2s'
+                      animationDelay: isVisible ? '0.4s' : '0s'
                     }}
                   >
                     Buy $TYGO
@@ -95,9 +120,9 @@ export function Hero() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex h-10 w-10 items-center justify-center rounded-xl border-3 border-[#ff9302] bg-black/60 backdrop-blur-sm text-[#ff9302] glow-border glow-hover transition-all duration-200 hover:translate-y-2 sm:h-12 sm:w-12 sm:rounded-2xl sm:border-4 fade-in-up"
+                      className={`flex h-10 w-10 items-center justify-center rounded-xl border-3 border-[#ff9302] bg-black/60 backdrop-blur-sm text-[#ff9302] glow-border glow-hover transition-all duration-200 hover:translate-y-2 sm:h-12 sm:w-12 sm:rounded-2xl sm:border-4 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                       aria-label={name}
-                      style={{ animationDelay: `${1.4 + index * 0.1}s` }}
+                      style={{ animationDelay: isVisible ? `${0.5 + index * 0.1}s` : '0s' }}
                     >
                       <Icon className="text-lg sm:text-xl" />
                     </Link>

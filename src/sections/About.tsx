@@ -2,10 +2,17 @@
 
 import Image from "next/image";
 import GridPattern from "@/components/GridPattern";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 export default function AboutSection() {
+  const { elementRef, isVisible } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "0px",
+  });
+
   return (
     <section
+      ref={elementRef as React.RefObject<HTMLElement>}
       id="about"
       className="relative min-h-screen overflow-hidden galaxy-bg"
     >
@@ -28,21 +35,21 @@ export default function AboutSection() {
           {/* Left Column */}
           <div className="flex flex-col justify-center space-y-6 sm:space-y-8">
             <h2 
-              className="text-4xl font-black uppercase text-[#FF8B00] sm:text-5xl lg:text-7xl glow-text-strong fade-in-up"
-              style={{ animationDelay: '0.1s' }}
+              className={`text-4xl font-black uppercase text-[#FF8B00] sm:text-5xl lg:text-7xl ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+              style={{ animationDelay: isVisible ? '0.1s' : '0s' }}
             >
               About $TYGO
             </h2>
             <div className="space-y-4 sm:space-y-6">
               <p 
-                className="text-lg font-bold leading-relaxed text-white glow-text sm:text-xl lg:text-2xl fade-in-up"
-                style={{ animationDelay: '0.2s' }}
+                className={`text-lg font-bold leading-relaxed text-white glow-text sm:text-xl lg:text-2xl ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+                style={{ animationDelay: isVisible ? '0.2s' : '0s' }}
               >
                 In the heart of the crypto jungle, <span className="text-[#FF8B00] glow-text-strong">$TYGO</span> the Tiger was born. A wild degen beast who lives on the edge and thrives in the chaos of Solana. He loves to trade and gamble, always chasing the next big opportunity, his favorite thing in the world is money.
               </p>
               <p 
-                className="text-base leading-relaxed text-white/90 glow-text sm:text-lg lg:text-xl fade-in-up"
-                style={{ animationDelay: '0.3s' }}
+                className={`text-base leading-relaxed text-white/90 glow-text sm:text-lg lg:text-xl ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+                style={{ animationDelay: isVisible ? '0.3s' : '0s' }}
               >
                 Fast, fearless, and always hungry for more, a beast who turns FOMO into fortune, fear into fuel, and roars when others panic.
               </p>
@@ -50,10 +57,10 @@ export default function AboutSection() {
             <div className="space-y-4 sm:space-y-6">
               {/* Combined Card - Contract Address & Money Tygo Image */}
               <div 
-                className="flex flex-col gap-4 sm:gap-5 lg:gap-6 rounded-xl sm:rounded-2xl border-2 sm:border-2 border-[#ff9302]/50 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md p-4 sm:p-5 lg:p-6 transition-all duration-300 hover:border-[#ff9302] fade-in-up"
+                className={`flex flex-col gap-4 sm:gap-5 lg:gap-6 rounded-xl sm:rounded-2xl border-2 sm:border-2 border-[#ff9302]/50 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md p-4 sm:p-5 lg:p-6 transition-all duration-300 hover:border-[#ff9302] ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                 style={{
                   boxShadow: '0 0 30px rgba(255, 147, 2, 0.3), 0 0 60px rgba(255, 147, 2, 0.15), inset 0 0 30px rgba(255, 147, 2, 0.05)',
-                  animationDelay: '0.4s',
+                  animationDelay: isVisible ? '0.4s' : '0s',
                 }}
               >
                 {/* Contract Address Section */}
@@ -105,14 +112,14 @@ export default function AboutSection() {
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-6 lg:gap-8 lg:items-start">
                 <div className="flex flex-1 flex-col items-center gap-3 text-center sm:items-start sm:gap-4 sm:pt-6 sm:text-left lg:pt-0 lg:items-start">
                   <h3 
-                    className="text-3xl font-black uppercase text-[#FF8B00] sm:text-4xl lg:text-5xl glow-text-strong fade-in-up"
-                    style={{ animationDelay: '0.5s' }}
+                    className={`text-3xl font-black uppercase text-[#FF8B00] sm:text-4xl lg:text-5xl ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: isVisible ? '0.5s' : '0s' }}
                   >
                     Mission
                   </h3>
                   <p 
-                    className="text-base font-semibold leading-relaxed text-white glow-text sm:text-lg lg:text-xl fade-in-up"
-                    style={{ animationDelay: '0.6s' }}
+                    className={`text-base font-semibold leading-relaxed text-white glow-text sm:text-lg lg:text-xl ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: isVisible ? '0.6s' : '0s' }}
                   >
                     Turn <span className="text-[#FF8B00] glow-text-strong">$TYGO</span> into the most viral mascot on Solana—bridging
                     memes, animation, dan mainstream culture.
@@ -121,8 +128,8 @@ export default function AboutSection() {
                 <div className="flex flex-col items-center gap-2 lg:flex-row lg:gap-0">
                   {/* Desktop: hanya troll GIF */}
                   <div 
-                    className="hidden lg:block relative w-60 fade-in-up"
-                    style={{ animationDelay: '0.7s' }}
+                    className={`hidden lg:block relative w-60 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: isVisible ? '0.7s' : '0s' }}
                   >
                     <Image
                       src="/images/troll_tygo.gif"
@@ -136,8 +143,8 @@ export default function AboutSection() {
                   
                   {/* Mobile: 3 GIF (troll + chemical + dance) */}
                   <div 
-                    className="lg:hidden flex flex-col items-center gap-2 fade-in-up"
-                    style={{ animationDelay: '0.7s' }}
+                    className={`lg:hidden flex flex-col items-center gap-2 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+                    style={{ animationDelay: isVisible ? '0.7s' : '0s' }}
                   >
                     <div className="relative w-32 sm:w-40">
                       <Image
@@ -176,10 +183,10 @@ export default function AboutSection() {
               </div>
               <ul className="space-y-3 text-sm sm:space-y-4 sm:text-base lg:text-lg">
                 <li 
-                  className="flex items-start gap-3 rounded-xl border-2 border-[#ff9302]/50 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md p-4 text-white transition-all duration-300 hover:border-[#ff9302] sm:gap-4 sm:rounded-2xl sm:p-5 fade-in-up"
+                  className={`flex items-start gap-3 rounded-xl border-2 border-[#ff9302]/50 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md p-4 text-white transition-all duration-300 hover:border-[#ff9302] sm:gap-4 sm:rounded-2xl sm:p-5 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                   style={{
                     boxShadow: '0 0 30px rgba(255, 147, 2, 0.3), 0 0 60px rgba(255, 147, 2, 0.15), inset 0 0 30px rgba(255, 147, 2, 0.05)',
-                    animationDelay: '0.8s',
+                    animationDelay: isVisible ? '0.8s' : '0s',
                   }}
                 >
                   <span 
@@ -194,10 +201,10 @@ export default function AboutSection() {
                   </p>
                 </li>
                 <li 
-                  className="flex items-start gap-3 rounded-xl border-2 border-[#ff9302]/50 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md p-4 text-white transition-all duration-300 hover:border-[#ff9302] sm:gap-4 sm:rounded-2xl sm:p-5 fade-in-up"
+                  className={`flex items-start gap-3 rounded-xl border-2 border-[#ff9302]/50 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md p-4 text-white transition-all duration-300 hover:border-[#ff9302] sm:gap-4 sm:rounded-2xl sm:p-5 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                   style={{
                     boxShadow: '0 0 30px rgba(255, 147, 2, 0.3), 0 0 60px rgba(255, 147, 2, 0.15), inset 0 0 30px rgba(255, 147, 2, 0.05)',
-                    animationDelay: '0.9s',
+                    animationDelay: isVisible ? '0.9s' : '0s',
                   }}
                 >
                   <span 
@@ -212,10 +219,10 @@ export default function AboutSection() {
                   </p>
                 </li>
                 <li 
-                  className="flex items-start gap-3 rounded-xl border-2 border-[#ff9302]/50 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md p-4 text-white transition-all duration-300 hover:border-[#ff9302] sm:gap-4 sm:rounded-2xl sm:p-5 fade-in-up"
+                  className={`flex items-start gap-3 rounded-xl border-2 border-[#ff9302]/50 bg-gradient-to-br from-black/80 via-black/70 to-black/80 backdrop-blur-md p-4 text-white transition-all duration-300 hover:border-[#ff9302] sm:gap-4 sm:rounded-2xl sm:p-5 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
                   style={{
                     boxShadow: '0 0 30px rgba(255, 147, 2, 0.3), 0 0 60px rgba(255, 147, 2, 0.15), inset 0 0 30px rgba(255, 147, 2, 0.05)',
-                    animationDelay: '1.0s',
+                    animationDelay: isVisible ? '1.0s' : '0s',
                   }}
                 >
                   <span 

@@ -37,7 +37,7 @@ export function Navbar() {
               />
             </div>
             <span 
-              className="truncate text-base font-black uppercase tracking-[0.2em] max-[360px]:tracking-[0.12em] sm:text-lg sm:tracking-[0.3em] lg:text-xl lg:tracking-[0.4em] font-luckiest text-[#ff9302] glow-text-strong fade-in-up"
+              className="truncate text-base font-black uppercase tracking-[0.2em] max-[360px]:tracking-[0.12em] sm:text-lg sm:tracking-[0.3em] lg:text-xl lg:tracking-[0.4em] font-luckiest text-[#ff9302]  fade-in-up"
               style={{ animationDelay: '0.2s' }}
             >
               $TYGO

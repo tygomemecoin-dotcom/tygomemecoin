@@ -10,32 +10,35 @@ import { HowToBuySection } from "@/sections/HowToBuy";
 import { FooterSection } from "@/sections/Footer";
 import ComicMarquee from "@/components/ComicMarquee";
 import FloatingMascot from "@/components/FloatingMascot";
+import { FallingTygoProvider } from "@/contexts/FallingTygoContext";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen text-white">
-      <style jsx global>{`
-        html { scroll-behavior: smooth; }
-        section[id] { scroll-margin-top: 96px; }
-        @media (max-width: 768px) {
-          section[id] { scroll-margin-top: 88px; }
-        }
-      `}</style>
-      <Navbar />
-      <FloatingMascot />
+    <FallingTygoProvider>
+      <div className="relative min-h-screen text-white">
+        <style jsx global>{`
+          html { scroll-behavior: smooth; }
+          section[id] { scroll-margin-top: 96px; }
+          @media (max-width: 768px) {
+            section[id] { scroll-margin-top: 88px; }
+          }
+        `}</style>
+        <Navbar />
+        <FloatingMascot />
 
-      <main className="relative">
-        <Hero />
+        <main className="relative">
+          <Hero />
 
-        <AboutSection />
-        <ComicMarquee />
-        {/* <GallerySection/> */}
-        {/* <BuyPortalSection />
-        <TokenomicsSection />
-        <RoadmapSection />
-        <HowToBuySection />
-        <FooterSection /> */}
-      </main>
-    </div>
+          <AboutSection />
+          <ComicMarquee />
+          <GallerySection/>
+          <BuyPortalSection />
+          <TokenomicsSection />
+          <RoadmapSection />
+          <HowToBuySection />
+          <FooterSection />
+        </main>
+      </div>
+    </FallingTygoProvider>
   );
 }

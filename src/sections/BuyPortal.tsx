@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 type ExchangeItem = {
   name: string;
@@ -22,13 +25,14 @@ const exchanges: ExchangeItem[] = [
   { name: "BINANCE", href: "https://www.binance.com", icon: "/images/logo/binance.png", maxWidth: 260 },
 ];
 
-function ExchangeCard({ exchange }: { exchange: ExchangeItem }) {
+function ExchangeCard({ exchange, isVisible, delay }: { exchange: ExchangeItem; isVisible: boolean; delay: number }) {
   return (
     <a
       href={exchange.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex h-16 items-center justify-center rounded-full transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-none sm:h-20 lg:h-24"
+      className={`group flex h-16 items-center justify-center rounded-full transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-none sm:h-20 lg:h-24 ${isVisible ? 'fade-in-up' : 'opacity-0'}`}
+      style={{ animationDelay: isVisible ? `${delay}s` : '0s' }}
     >
       <div
         className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full border-3 border-[#ff9302] bg-[#FF8B00]/30 backdrop-blur-sm px-3 glow-border glow-hover transition-shadow hover:shadow-none sm:px-4 lg:px-6"
@@ -62,12 +66,21 @@ function ExchangeCard({ exchange }: { exchange: ExchangeItem }) {
 }
 
 export default function BuyPortalSection() {
+  const { elementRef, isVisible } = useIntersectionObserver({
+    threshold: 0.1,
+    rootMargin: "0px",
+  });
+
   return (
-    <section id="buy-tygo" className="relative galaxy-bg py-10 text-white sm:py-14 lg:py-16">
+    <section
+      ref={elementRef as React.RefObject<HTMLElement>}
+      id="buy-tygo"
+      className="relative galaxy-bg py-10 text-white sm:py-14 lg:py-16"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-blue-900/10 to-transparent z-0" />
       <div className="absolute inset-0 border-y-3 border-[#ff9302]/30 sm:border-y-4" aria-hidden="true" />
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 sm:gap-8 sm:px-6 md:px-10 lg:gap-10 lg:px-12">
-        <div className="flex flex-col gap-3 text-center sm:gap-4 sm:text-left">
+        <div className={`flex flex-col gap-3 text-center sm:gap-4 sm:text-left ${isVisible ? 'fade-in-up' : 'opacity-0'}`} style={{ animationDelay: isVisible ? '0.1s' : '0s' }}>
           <h2 className="text-3xl font-black uppercase text-[#FF8B00] sm:text-4xl lg:text-6xl glow-text-strong">
             Buy $TYGO On Any Jungle Outpost
           </h2>
@@ -80,8 +93,8 @@ export default function BuyPortalSection() {
         </div>
 
         <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-4">
-          {exchanges.map((exchange) => (
-            <ExchangeCard key={exchange.name} exchange={exchange} />
+          {exchanges.map((exchange, index) => (
+            <ExchangeCard key={exchange.name} exchange={exchange} isVisible={isVisible} delay={0.2 + index * 0.05} />
           ))}
         </div>
       </div>
