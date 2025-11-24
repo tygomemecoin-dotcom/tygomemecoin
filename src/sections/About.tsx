@@ -122,7 +122,7 @@ export default function AboutSection() {
                     style={{ animationDelay: isVisible ? '0.6s' : '0s' }}
                   >
                     Turn <span className="text-[#FF8B00] glow-text-strong">$TYGO</span> into the most viral mascot on Solana—bridging
-                    memes, animation, dan mainstream culture.
+                    memes, animation, and mainstream culture.
                   </p>
                 </div>
                 <div className="flex flex-col items-center gap-2 lg:flex-row lg:gap-0">

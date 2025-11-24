@@ -92,11 +92,11 @@ export default function BlueprintSection() {
               <FaFilePdf className="text-5xl text-[#FF8B00] glow-text-strong sm:text-6xl" />
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.25em] text-white/80 sm:text-sm">
-                  TYGO Strategic Blueprint
+                  TYGO STRATEGIC BLUEPRINT, ART DIRECTION & EXECUTION PLAN
                 </p>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60 sm:text-xs">
-                  40+ PAGES OF LORE, ART DIRECTION & EXECUTION PLAN
-                </p>
+                {/* <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60 sm:text-xs">
+                  TYGO STRATEGIC BLUEPRINT, ART DIRECTION & EXECUTION PLAN
+                </p> */}
               </div>
             </div>
           </div>
