@@ -36,7 +36,7 @@ export default function Home() {
           <BuyPortalSection />
           <TokenomicsSection />
           <RoadmapSection />
-          <BlueprintSection />
+          {/* <BlueprintSection /> */}
           <HowToBuySection />
           <FooterSection />
         </main>
