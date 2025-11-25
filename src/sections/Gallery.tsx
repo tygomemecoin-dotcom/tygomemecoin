@@ -221,7 +221,7 @@ export default function GallerySection() {
             href="https://t.me/tygomemes"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border-3 border-[#ff9302] bg-black/60 backdrop-blur-md px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-white glow-border-strong glow-hover transition-all duration-200 hover:translate-y-2 sm:w-auto sm:gap-3 sm:border-4 sm:px-6 sm:py-3 sm:text-sm sm:tracking-[0.25em]"
+            className="inline-flex items-center justify-center gap-2 rounded-full border-3 border-[#ff9302] bg-black/60 backdrop-blur-md px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.15em] text-white glow-border-strong glow-hover transition-all duration-200 hover:translate-y-2 sm:gap-2.5 sm:border-3 sm:px-4 sm:py-2 sm:text-[10px] sm:tracking-[0.2em] lg:gap-3 lg:border-4 lg:px-6 lg:py-3 lg:text-sm lg:tracking-[0.25em]"
           >
             View Full Archive ↗
           </a>
