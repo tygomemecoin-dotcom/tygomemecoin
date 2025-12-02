@@ -13,11 +13,16 @@
 /* Animasi dihapus untuk performa yang lebih baik */
 
 @layer base {
+  * {
+    cursor: none !important;
+  }
+
   body {
     font-family: "Freeman", "Inter", system-ui, -apple-system, sans-serif;
     background: radial-gradient(ellipse at bottom, #1a1a2e 0%, #0a0a1a 100%);
     background-attachment: fixed;
     position: relative;
+    cursor: none !important;
   }
 
   body::before {
@@ -495,6 +500,97 @@
     100% {
       opacity: 0;
       transform: scale(1.05);
+    }
+  }
+
+  /* Custom Cursor Effect */
+  .custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    z-index: 999999 !important;
+    display: block;
+    will-change: transform;
+    filter: drop-shadow(0 0 8px rgba(255, 147, 2, 0.8)) 
+            drop-shadow(0 0 16px rgba(255, 147, 2, 0.6))
+            drop-shadow(0 0 24px rgba(255, 147, 2, 0.4));
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .custom-cursor .cursor-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    user-select: none;
+    -webkit-user-drag: none;
+    display: block;
+    image-rendering: crisp-edges;
+    filter: brightness(1.2) contrast(1.1);
+  }
+
+  /* Click Effect */
+  .custom-cursor.clicking .cursor-image {
+    transform: scale(0.85) rotate(-5deg);
+    filter: brightness(1.5) contrast(1.2) 
+            drop-shadow(0 0 12px rgba(255, 147, 2, 1))
+            drop-shadow(0 0 20px rgba(255, 147, 2, 0.8));
+  }
+
+  .custom-cursor.clicking {
+    filter: drop-shadow(0 0 12px rgba(255, 147, 2, 1)) 
+            drop-shadow(0 0 20px rgba(255, 147, 2, 0.8))
+            drop-shadow(0 0 30px rgba(255, 147, 2, 0.6));
+  }
+
+  /* Click Ripple Effect */
+  .cursor-click-ripple {
+    position: fixed;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    z-index: 999998;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 147, 2, 0.8);
+    background: radial-gradient(circle, rgba(255, 147, 2, 0.3) 0%, transparent 70%);
+    animation: cursorRipple 0.4s ease-out forwards;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @keyframes cursorRipple {
+    0% {
+      width: 40px;
+      height: 40px;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      width: 120px;
+      height: 120px;
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+  }
+
+  /* Hover effect on interactive elements */
+  a:hover ~ .custom-cursor,
+  button:hover ~ .custom-cursor,
+  [role="button"]:hover ~ .custom-cursor {
+    filter: drop-shadow(0 0 10px rgba(255, 147, 2, 1)) 
+            drop-shadow(0 0 20px rgba(255, 147, 2, 0.8));
+  }
+
+  @media screen and (max-width: 768px) {
+    .custom-cursor,
+    .cursor-click-ripple {
+      display: none !important;
     }
   }
 }

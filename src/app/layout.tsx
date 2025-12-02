@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import FlareCursor from "@/components/FlareCursor";
 
 export const metadata: Metadata = {
   title: "$TYGO — Wild Degen of Solana",
@@ -29,6 +30,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#020807] text-white antialiased">
+        <FlareCursor />
         {children}
         <Analytics />
       </body>
