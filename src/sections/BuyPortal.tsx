@@ -12,11 +12,11 @@ type ExchangeItem = {
 };
 
 const exchanges: ExchangeItem[] = [
-  { name: "DEXSCREENER", href: "https://dexscreener.com", icon: "/images/logo/dexscreener.png", maxWidth: 200 },
-  { name: "DEXTOOLS", href: "https://www.dextools.io", icon: "/images/logo/dextools.png", maxWidth: 200 },
-  { name: "JUPITER", href: "https://jup.ag", icon: "/images/logo/jupiter.png", maxWidth: 260 },
-  { name: "PUMPFUN", href: "https://pump.fun", icon: "/images/logo/pumpfun.png", maxWidth: 320 },
-  // { name: "OKX DEX", href: "https://www.okx.com/web3/dex", icon: "/images/logo/okx.png", maxWidth: 260 },
+  { name: "DEXSCREENER", href: "https://dexscreener.com/solana/styu36bega5evsdcu6p66tskr6inmpna4gszseinehz", icon: "/images/logo/dexscreener.png", maxWidth: 200 },
+  { name: "DEXTOOLS", href: "https://www.dextools.io/app/en/solana/pair-explorer/sTYU36bEGA5eVsDCU6P66tskR6iNMPnA4gSZseiNEHz?t=1764640571311", icon: "/images/logo/dextools.png", maxWidth: 200 },
+  { name: "JUPITER", href: "https://jup.ag/?buy=uwYoqVUs1QacagLYZTPK9eFwjwptpmgV4vA1poKpump", icon: "/images/logo/jupiter.png", maxWidth: 260 },
+  { name: "PUMPFUN", href: "https://pump.fun/coin/uwYoqVUs1QacagLYZTPK9eFwjwptpmgV4vA1poKpump", icon: "/images/logo/pumpfun.png", maxWidth: 320 },
+  { name: "OKX DEX", href: "https://web3.okx.com/es-es/dex-swap?chain=solana,solana&token=11111111111111111111111111111111,uwYoqVUs1QacagLYZTPK9eFwjwptpmgV4vA1poKpump", icon: "/images/logo/okx.png", maxWidth: 260 },
   // { name: "GATE IO", href: "https://www.gate.io", icon: "/images/logo/gateio.png" },
   // { name: "KUCOIN", href: "https://www.kucoin.com", icon: "/images/logo/kucoin.png" },
   // { name: "REVOLUT", href: "https://www.revolut.com", icon: "/images/logo/revoult.png", maxWidth: 220 },
