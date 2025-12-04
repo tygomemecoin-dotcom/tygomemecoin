@@ -73,11 +73,11 @@ export default function AboutSection() {
                     }}
                   >
                     <code className="flex-1 overflow-x-auto break-all text-xs font-bold text-white glow-text sm:text-sm lg:text-base">
-                      TyG0xXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxX
+                      uwYoqVUs1QacagLYZTPK9eFwjwptpmgV4vA1poKpump
                     </code>
                     <button
                       onClick={() => {
-                        navigator.clipboard.writeText('TyG0xXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxXxX');
+                        navigator.clipboard.writeText('uwYoqVUs1QacagLYZTPK9eFwjwptpmgV4vA1poKpump');
                       }}
                       className="w-full shrink-0 rounded border-2 border-[#ff9302]/60 bg-[#ff9302]/20 backdrop-blur-sm px-4 py-2 text-sm font-black uppercase text-[#ff9302] transition-all hover:bg-[#ff9302]/30 hover:border-[#ff9302] sm:w-auto"
                       style={{
