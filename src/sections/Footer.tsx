@@ -15,7 +15,7 @@ const socials = [
   { name: "Telegram", href: "https://t.me/tygo_memecoin", icon: FaTelegram },
   { name: "Twitter", href: "https://x.com/tygo_memecoin", icon: FaXTwitter },
   { name: "YouTube", href: "https://youtube.com/@tygo_memecoin", icon: FaYoutube },
-  { name: "TikTok", href: "https://www.tiktok.com/@tygo_memecoin", icon: FaTiktok },
+  { name: "TikTok", href: "https://www.tiktok.com/@tygo.solana", icon: FaTiktok },
   { name: "Instagram", href: "https://www.instagram.com/tygo_memecoin", icon: FaInstagram },
 ];
 
